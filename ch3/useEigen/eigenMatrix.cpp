@@ -5,7 +5,7 @@ using namespace std;
 #include <Eigen/Core>
 
 #include <Eigen/Dense>
-using namespacee Eigen;
+using namespace Eigen;
 
 #define MATRIX_SIZE 50
 
