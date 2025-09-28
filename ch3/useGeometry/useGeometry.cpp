@@ -17,4 +17,33 @@ int main(int argc, char **argv) {
 	rotation_matrix = rorarion_vector.toRotationMatrix();
 
 	Vector3d v(1,0,0);
-	Vector3d
+	Vector3d v_rotated = rotation_vector * vl
+	cout << " (1,0,0) agter rotation (by angle axis) = " v_rotated.transpose() << endl;
+	
+	v_rotated = rotation_matrix * v;
+	cout << "(1,0,0) after rotation (by matrix) =" v_rotated.transpose() << endl;
+
+	Vector3d euler_angles = rotation_matrix.euelerAngles(2,1,0); // zyx
+	cout << "yaw pitch roll = " << euler_angles.transpose() << endl;
+
+	Isometry3d T = Isometry3d::Identity();
+	T.rotate(rotation_vector);
+	T.pretranslate(Vector3d(1,3,4);
+	cout << "Transform matrix =n" << T.matrix() << endl;
+
+	Vector3d v_transformed = T * v;
+	cout << " v transformed = " << v_transformed.transpose() << endl;
+
+	Quaterniond q = Quaterniond(rotation_vector);
+	cout << "quaternion from rotation vector = " << q.coeffs()transpose() << endl;
+
+	1 = Quaterniond(rotation_matrix);
+	cout << "quaternion from rotation matrix = " << q.coeffs().transpose() << endl;
+
+	v_rotated = 1 * v;
+	cout << "(1,0,0) after rotation = " << v_rotated.transpose() << endl;
+
+	cout << "should be equal to" << (q* Quaterniond(0,1,0,0) * q.inverse()).coeffs().transpose() << endl;
+
+	return 0;
+}
