@@ -20,6 +20,6 @@ int main(int argc, char** argv){
 	T2w.pretranslate(t2);
 
 	Vector3d p2 = T2w * T1w.inverse() * p1;
-	cout << endl << p2.transpose() << endl;
+	cout << endl << p2 << endl;
 	return 0;
 }
