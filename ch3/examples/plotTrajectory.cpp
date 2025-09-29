@@ -13,7 +13,7 @@ int main(int argc, char **argv){
 	vector<Isometry3d, Eigen::aligned_allocator<Isometry3d>> poses;
 	ifstream fin(trajectory_file);
 	if (!fin){
-		cout << "cannot find trajectory file at" << trtajectory_file << endl;
+		cout << "cannot find trajectory file at" << trajectory_file << endl;
 		return 1;
 	}	
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv){
 		Twr.pretranslate(Vector3d(tx, ty, tz));
 		poses.push_back(Twr);
 	}
-	cout << "read total: MM poses.size() << "pose entries" << endl;
+	cout << "read total:"<< poses.size() << "pose entries" << endl;
 
 	DrawTrajectory(poses);
 	return 0;
@@ -38,7 +38,7 @@ void DrawTrajectory(vector<Isometry3d, Eigen::aligned_allocator<Isometry3d>> pos
 	
 	pangolin::OpenGlRenderState s_cam(
 	pangolin::ProjectionMatrix(1024, 768,500, 500, 512, 389, 0.1, 1000),
-	pangolin:ModelViewLookAt(0, -0.1, -1.8, 0, 0, 0, 0.0, -1.0, 0.0)
+	pangolin::ModelViewLookAt(0, -0.1, -1.8, 0, 0, 0, 0.0, -1.0, 0.0)
 	);
 
 	pangolin::View &d_cam = pangolin::CreateDisplay()
@@ -48,10 +48,10 @@ void DrawTrajectory(vector<Isometry3d, Eigen::aligned_allocator<Isometry3d>> pos
 	while (pangolin::ShouldQuit() ==false) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		d_cam.Activate(s_cam);
-		glClearColor(1.0f, 1.0f, 1.0f);
+		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 		glLineWidth(2);
 		for (size_t i = 0; i < poses.size(); i++ ) {
-			Vector3d Ow = pose[i].translation();
+			Vector3d Ow = poses[i].translation();
 			Vector3d Xw = poses[i] * (0.1 * Vector3d(1,0,0));
 			Vector3d Yw = poses[i] * (0.1 * Vector3d(0,1,0));
 			Vector3d Zw = poses[i] * (0.1 * Vector3d(0,0,1));
