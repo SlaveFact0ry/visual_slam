@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
 		for (int u = 0; u < cols; u++) {
 			double x = (u-cx) / fx, y = (v-cy)/fy;
 			double r = sqrt(x*x +y*y);
-			double x_distorted = x*(1+k1*r*r + k2*r*r*r*r) + 2 * p1 * x*y* + p * (r* r +2 * x * x);
+			double x_distorted = x*(1+k1*r*r + k2*r*r*r*r) + 2 * p1 * x*y* + p2 * (r* r +2 * x * x);
 			double y_distorted = y * (1 + k1 * r * r + k2 * r * r * r * r) + p1 * (r * r + 2 * y * y) + 2 * p2 * x * y;
 			double u_distorted = fx * x_distorted + cx;
 			double v_distorted = fy * y_distorted + cy;
