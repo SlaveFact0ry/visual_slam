@@ -48,7 +48,7 @@ int main(int argc, char **argv){
 	cv::Mat image_clone = image.clone();
 	image_another(cv::Rect(0, 0, 100, 100)).setTo(255);
 	cv::imshow("image", image);
-	cv::imshow("image_clone", image_clone):
+	cv::imshow("image_clone", image_clone);
 	cv::waitKey(0);
 
 	cv::destroyAllWindows();
