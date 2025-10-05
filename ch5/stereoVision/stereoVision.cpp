@@ -12,7 +12,7 @@ string left_file = "./left.png";
 string right_file = "./right.png";
 
 void showPointCloud(
-	const vector<Vector4d, Eigen::aligned_allocator<Vector4d>> && pointcloud);
+	const vector<Vector4d, Eigen::aligned_allocator<Vector4d>> &pointcloud);
 
 int main(int argc, char **argv) {
 	double fx = 718.856, fy = 718.856, cx = 607.1928, cy = 185.2157;
