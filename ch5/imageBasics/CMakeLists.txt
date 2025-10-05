@@ -1,8 +1,9 @@
-project(imageBasics)
+set( CMAKE_CXX_FLAGS "-std=c++14" )
 
-add_executable(imageBasics imageBasics.cpp)
-target_link_libraries(imageBasics ${OpenCV_LIBS})
+find_package( OpenCV REQUIRED )
 
-add_executable(undistortImage undistortImage.cpp)
-target_link_libraries(undistortImage ${OpenCV_LIBS})
+include_directories( $ {OpenCV_INCLUDE_DIRS })
 
+add_exevutable( imageBasics imageBasics.cpp)
+
+target_link_libraries( imageBasics $ {OpenCV_LIBS} )
