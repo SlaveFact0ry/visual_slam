@@ -14,4 +14,4 @@ target_include_directories(undistortImage PUBLIC ${OpenCV_INCLUDE_DIRS})
 
 # OpenCV 라이브러리를 타겟에 링크
 target_link_libraries(imageBasics ${OpenCV_LIBS})
-target_link_libraries(undistortImage${OpenCV_LIBS})
+target_link_libraries(undistortImage ${OpenCV_LIBS})
