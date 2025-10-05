@@ -1,10 +1,10 @@
 #include <opencv2/opencv.hpp>
-#inlude <string>
+#include <string>
 using namespace std;
 string image_file = "./distorted.png";
 
 int main(int argc, char **argv) {
-	double k1 = -0.28340811, k2-0.07395907, p1=0.00019359, p2  = 1.76187114e-01;
+	double k1 = -0.28340811, k2=0.07395907, p1=0.00019359, p2  = 1.76187114e-01;
 	double fx = 458.654, fy = 457.296, cx = 367.215, cy = 248.375;
 	
 	cv::Mat image = cv::imread(image_file, 0);
