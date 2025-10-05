@@ -9,4 +9,5 @@ add_executable(joinMap joinMap.cpp)
 include_directories(${Sophus_INCLUDE_DIRS})
 
 target_include_directories(joinMap PUBLIC ${OpenCV_INCLUDE_DIRS})
+target_include_directories(joinMap PUBLIC ${Sophus_INCLUDE_DIRS})
 target_link_libraries(joinMap ${OpenCV_LIBS} ${Pangolin_LIBRARIES})
