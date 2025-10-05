@@ -61,7 +61,7 @@ void showPointCloud(const vector<Vector4d, Eigen::aligned_allocator<Vector4d>> &
 	
 	pangolin::OpenGlRenderState s_cam(
 		pangolin::ProjectionMatrix(1024, 768, 500, 500, 512, 389, 0.1, 1000),
-		pangolin::ModelViewLookAt(0, -0.1, -1.8, 0, 0, 0, 0.0, -1.0, 0,0)
+		pangolin::ModelViewLookAt(0, -0.1, -1.8, 0, 0, 0, 0.0, -1.0, 0.0)
 	);
 	
 	pangolin::View &d_cam = pangolin::CreateDisplay()
@@ -77,7 +77,7 @@ void showPointCloud(const vector<Vector4d, Eigen::aligned_allocator<Vector4d>> &
 		glBegin(GL_POINTS);
 		for (auto &p: pointcloud) {
 			glColor3f(p[3], p[3], p[3]);
-			glVertex3d(P[0], P[1], P[2]);
+			glVertex3d(p[0], p[1], p[2]);
 		}
 		glEnd();
 		pangolin::FinishFrame();
