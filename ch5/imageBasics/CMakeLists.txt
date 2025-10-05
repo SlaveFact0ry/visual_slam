@@ -4,6 +4,6 @@ find_package( OpenCV REQUIRED )
 
 include_directories( $ {OpenCV_INCLUDE_DIRS })
 
-add_exevutable( imageBasics imageBasics.cpp)
+add_executable( imageBasics imageBasics.cpp)
 
 target_link_libraries( imageBasics $ {OpenCV_LIBS} )
