@@ -48,7 +48,7 @@ int main(int argc, char **argv) {
 	return 0;
 }
 
-void showPointCloud(const vector<Vector4d, Eigen::aligned_allocator<Vector4d> &pointcloud) {
+void showPointCloud(const vector<Vector4d, Eigen::aligned_allocator<Vector4d>> &pointcloud) {
 	if (pointcloud.empty()) {
 		cerr << "Point cloud is empty!" <<endl;
 		return;
