@@ -38,7 +38,7 @@ int main(int argc, char **argv){
 	}
 	chrono::steady_clock::time_point t2 = chrono::steady_clock::now();
 	chrono::duration<double> time_used = chrono::duration_cast<chrono::duration < double >> (t2 - t1);
-	cout << " 이미지를 통과하는 데 걸리는 시간:" << time_used.cout() << "초" << endl;
+	cout << " 이미지를 통과하는 데 걸리는 시간:" << time_used.count() << "초" << endl;
 
 	cv::Mat image_another = image;
 	image_another(cv::Rect(0, 0, 100, 100)).setTo(0);
@@ -48,7 +48,7 @@ int main(int argc, char **argv){
 	cv::Mat image_clone = image.clone();
 	image_another(cv::Rect(0, 0, 100, 100)).setTo(255);
 	cv::imshow("image", image);
-	cv::imashow("image_clone", image_clone):
+	cv::imshow("image_clone", image_clone):
 	cv::waitKey(0);
 
 	cv::destroyAllWindows();
