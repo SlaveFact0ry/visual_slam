@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
 			double v_distorted = fy * y_distorted + cy;
 			
 			if (u_distorted >= 0 && v_distorted >= 0 && u_distorted <cols && v_distorted <rows){
-				image_undistort.at<uchar>(v, u) = image.at<uchar((int) v_distorted, (int) udistorted);
+				image_undistort.at<uchar>(v, u) = image.at<uchar>((int) v_distorted, (int) u_distorted);
 				} else {
 				image_undistort.at<uchar>(v, u) = 0;
 				}
