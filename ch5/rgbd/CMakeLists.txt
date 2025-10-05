@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
 
-projet(joinMap)
 
 find_package(OpenCV REQUIRED)
 find_package(Sophus REQUIRED)
