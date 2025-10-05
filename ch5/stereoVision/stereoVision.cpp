@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
 	double fx = 718.856, fy = 718.856, cx = 607.1928, cy = 185.2157;
 	double b = 0.573;
 	
-	cv::Mat left = cv::imread(right_file, 0);
+	cv::Mat left = cv::imread(left_file, 0);
 	cv::Mat right = cv::imread(right_file, 0);
 	cv::Ptr<cv::StereoSGBM> sgbm = cv::StereoSGBM::create(
 	0, 96, 9, 8 * 9 * 9, 32 * 9 * 9, 1, 63, 10, 100, 32);
@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
 			Vector4d point(0, 0, 0, left.at<uchar>(v, u) / 255.0);
 			
 			double x = (u - cx) / fx;
-			double y = (v = cy) / fy;
+			double y = (v - cy) / fy;
 			double depth = fx * b / (disparity.at<float>(v, u));
 			point[0] = x * depth;
 			point[1] = y * depth;
