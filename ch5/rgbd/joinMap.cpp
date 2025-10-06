@@ -10,7 +10,7 @@ typedef vector<Sophus::SE3d, Eigen::aligned_allocator<Sophus::SE3d>> TrajectoryT
 typedef Eigen::Matrix<double, 6, 1> Vector6d;
 
 void showPointCloud(
-	const vector<Vector6d, Eigen::aligned_allocator<Vector6d>> &pointcloud;
+	const vector<Vector6d, Eigen::aligned_allocator<Vector6d>> &pointcloud);
 
 int main(int argc, char **argv) {
 	vector<cv::Mat> colorImgs, depthImgs;
@@ -24,7 +24,7 @@ int main(int argc, char **argv) {
 	
 	for (int i = 0; i < 5 ; i++){
 		boost::format fmt("./%s/%d.%s");
-		colorImgs.push_back(cv::imread((fmt % "color" % (i + 1) % "png").str()))
+		colorImgs.push_back(cv::imread((fmt % "color" % (i + 1) % "png").str()));
 		depthImgs.push_back(cv::imread((fmt % "depth" % (i + 1) % "pgm").str(), -1));
 		
 		double data[7] = {0};
@@ -32,7 +32,7 @@ int main(int argc, char **argv) {
 			fin >> d;
 		Sophus::SE3d pose(Eigen::Quaterniond(data[6], data[3], data[4], data[5]),
 				  Eigen::Vector3d(data[0], data[1], data[2]));
-		poses.push_back(pose;
+		poses.push_back(pose);
 	}
 	
 	double cx = 325.5;
@@ -46,10 +46,10 @@ int main(int argc, char **argv) {
 	for (int i = 0; i < 5 ; i++) {
 		cout << "이미지 변환:" << i+1 << endl;
 		cv::Mat color = colorImgs[i];
-		cv::Mat depth = depthOmgs[i];
+		cv::Mat depth = depthImgs[i];
 		Sophus::SE3d T = poses[i];
 		for (int v = 0; v < color.rows; v++) 
-			for (int u = 0; u < colors.cols; u++) {
+			for (int u = 0; u < color.cols; u++) {
 				unsigned int d = depth.ptr<unsigned short>(v)[u];
 				if (d==0) continue;
 				Eigen::Vector3d point;
@@ -68,7 +68,7 @@ int main(int argc, char **argv) {
 			}
 
 		}
-	cout << " 글로벌 포인트 클라우드는 " << point.size() << "개의 포인트를 가진다" << endl;
+	cout << " 글로벌 포인트 클라우드는 " << pointcloud.size() << "개의 포인트를 가진다" << endl;
 	showPointCloud(pointcloud);
 	return 0;
 }
