@@ -7,7 +7,7 @@
 
 using namespace std;
 typedef vector<Sophus::SE3d, Eigen::aligned_allocator<Sophus::SE3d>> TrajectoryType;
-typedef Eigen::MatrixM]<double, 6, 1> Vector6d;
+typedef Eigen::Matrix<double, 6, 1> Vector6d;
 
 void showPointCloud(
 	const vector<Vector6d, Eigen::aligned_allocator<Vector6d>> &pointcloud;
